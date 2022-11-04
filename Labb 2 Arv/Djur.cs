@@ -83,7 +83,6 @@ namespace Labb_2_Arv_
                     loopbool = false;
                 }
             }
-
         }
 
         //Method that writes Animals assigned sound.
@@ -92,11 +91,6 @@ namespace Labb_2_Arv_
 
             Console.WriteLine(Name + " Goes : " + AnimalSound + "\n");
         }
-
-
     }
-
-
-
 }
 

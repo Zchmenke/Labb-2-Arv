@@ -9,7 +9,11 @@ namespace Labb_2_Arv_
     {
         static void Main(string[] args)
         {
+            Menue();
+        }
 
+        public static void Menue()
+        {
             // Animals.
             //A "Horse" created from Horse Class.
             var Pelle = new Horse("Pelle", "Horse", "Male", 5, "Brown", false, 0, "Neigh Neigh!", true);
@@ -21,13 +25,12 @@ namespace Labb_2_Arv_
 
             // Cow object from cow class
             var Rosa = new Cow("Rosa", "Cow", "Female", 3, "White with black spots", false, 0, "MOOOOO!", 1034.34f);
+          
+            // Adding All the different animals to a list to iterate thourgh with methods.
+            List<Animal> animalList = new List<Animal>();
+            animalList.Add(Pelle);animalList.Add(Lennart);animalList.Add(Bernard); animalList.Add(Greta);animalList.Add(Rosa);
 
-            //Sending all the objects of the different classes to menue method so the information can be used in a menu structure.
-            Menue(Pelle, Lennart, Bernard, Greta, Rosa);
-        }
 
-        public static void Menue(Horse Pelle, Goat Lennart, WhiteLamb Bernard, BlackLamb Greta, Cow Rosa)
-        {
             bool MenueBool = true;
             do
             {
@@ -36,18 +39,24 @@ namespace Labb_2_Arv_
                 switch (userChoice)
                 {
                     case 1:
-                        Console.Clear();
-                        Pelle.PrintInfo(); Lennart.PrintInfo(); Bernard.PrintInfo(); Greta.PrintInfo(); Rosa.PrintInfo();
+                        foreach (var Animal in animalList)
+                        {
+                            Animal.PrintInfo();
+                        }
                         break;
 
                     case 2:
-                        Console.Clear();
-                        Pelle.MakeSound(); Lennart.MakeSound(); Bernard.MakeSound(); Greta.MakeSound(); Rosa.MakeSound();
+                        foreach (var Animal in animalList)
+                        {
+                            Animal.MakeSound();
+                        }
                         break;
 
                     case 3:
-                        Console.Clear();
-                        Pelle.IsAgrressive(); Lennart.IsAgrressive(); Bernard.IsAgrressive(); Greta.IsAgrressive(); Rosa.IsAgrressive();
+                        foreach (var Animal in animalList)
+                        {
+                            Animal.IsAgrressive();
+                        }
                         break;
                 }
                 Console.ReadLine();
